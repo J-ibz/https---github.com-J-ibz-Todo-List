@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Hind", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+}
+
+section {
+  position: relative;
+  background-color: #fff;
+  width: 400px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 20px;
+  padding-inline: 10px;
+  background-color: royalblue;
+  color: #fff;
+  font-weight: 600;
+}
+
+ul {
+  display: flex;
+  padding-inline: 10px;
+  padding-block: 15px;
+}
+
+li {
+  list-style: none;
+  padding-inline: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+label input {
+  visibility: hidden;
+  appearance: none;
+}
+
+label p {
+  margin-right: auto;
+}
+
+label span {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms;
+}
+
+label span::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  width: 10px;
+  height: 5px;
+  border-left: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  transform: rotate(-40deg);
+}
+
+input:checked ~ p {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+input:checked ~ span {
+  background-color: royalblue;
+  border: 1px solid royalblue;
+}
+
+input:checked ~ span::before {
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+}
+
+footer form {
+  display: flex;
+  width: 100%;
+}
+
+footer form input {
+  width: 100%;
+  border: none;
+  margin: 20px;
+  border-bottom: solid 1px #ccc;
+  outline: none;
+  font-size: 16px;
+}
+
+.btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.btn.create {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-right: 10px;
+  color: royalblue;
+}
+
+.delete-button {
+  background-color: #fff;
+  border: none;
+  font-size: 20px;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 350ms;
+  font-weight: 600;
+}
+
+.delete-button:hover {
+  color: red;
+}
+
+.alert {
+  position: absolute;
+  width: 400px;
+  padding: 20px;
+}
+
+.alert.danger {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+}
+
+.alert.succes {
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+}
