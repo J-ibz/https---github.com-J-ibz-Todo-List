@@ -1,6 +1,6 @@
-#TODO LIST
+# TODO LIST
 
-##Objectif du projet  
+## Objectif du projet  
 
 -Réaliser une Todo List en faisant de la programmation orienté objet.  
 
