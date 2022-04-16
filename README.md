@@ -7,3 +7,9 @@
 -Réaliser le projet en n'utilisant que du JS natif.  
 
 -Stocker les données dans le localStorage.
+
+## A faire  
+  
+-Correction bug mineur click label  
+
+-Refactoring
