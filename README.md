@@ -10,6 +10,6 @@
 
 ## A faire  
   
--Correction bug mineur click label  
+~~-Correction bug mineur click label~~
 
--Refactoring
+~~-Refactoring~~
