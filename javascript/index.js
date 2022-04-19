@@ -2,9 +2,8 @@ import List from "./modules/List.js";
 import UI from "./modules/UI.js";
 import Store from "./modules/Store.js";
 
-//Event: Afficher les listes au chargement du DOM
+//Event: Afficher les listes et le counter au chargement du DOM
 document.addEventListener("DOMContentLoaded", UI.displayMyLists);
-//Event: Afficher le counter au chargement du DOM
 document.addEventListener("DOMContentLoaded", UI.showCounter);
 
 //Event: Ajouter une liste au clic
@@ -30,16 +29,19 @@ document.querySelector("[list-form]").addEventListener("submit", (e) => {
 
 //Event: Supprimer une liste
 document.querySelector("[list-main]").addEventListener("click", (e) => {
-  UI.deleteList(e.target); //Supprimer une liste de l'UI
-  Store.removeOneList(e.target.previousElementSibling.children[0].children[1].id); //Supprimer une liste du Store
-  UI.showCounter(); //MAJ counter
+  if (e.target.nodeName.toLowerCase() == "button") {
+    let id = e.path[1].id;
+    UI.deleteList(e.target); //Supprimer une liste de l'UI
+    Store.removeOneList(id); //Supprimer du store
+    UI.showCounter(); //MAJ counter
+  }
 });
 
 //Event: Récupération du status de la checkbox
-document.addEventListener("click", (e) => {
-  let status = e.target.children[0].checked; //récupère le status de la checkbox
-  let id = e.target.children[1].id; //recupère l'id de la balise <p>
-  if (e.target.classList.contains("checkbox")) {
+document.querySelector("[list-main]").addEventListener("click", (e) => {
+  if (e.target.nodeName.toLowerCase() == "input") {
+    let status = e.path[0].checked; //récupère le status de la checkbox
+    let id = e.path[3].id; //recupère l'id de la balise <p>
     Store.updateStatus(status, id); //envoie du status et id de l'item ciblé au Store
     UI.showCounter(); //MAJ counter
   }

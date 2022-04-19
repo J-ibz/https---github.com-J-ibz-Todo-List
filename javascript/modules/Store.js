@@ -32,13 +32,22 @@ export default class Store {
 
   //Update du status de la checkbox dans le localStorage
   static updateStatus(status, id) {
-    let updatedStatus = !status;
     let lists = JSON.parse(localStorage.getItem("lists"));
     for (let todo of lists) {
       if (todo.id == id) {
-        todo.status = updatedStatus;
+        todo.status = status;
       }
     }
     localStorage.setItem("lists", JSON.stringify(lists));
   }
+  // static updateStatus(status, id) {
+  //   let updatedStatus = !status;
+  //   let lists = JSON.parse(localStorage.getItem("lists"));
+  //   for (let todo of lists) {
+  //     if (todo.id == id) {
+  //       todo.status = updatedStatus;
+  //     }
+  //   }
+  //   localStorage.setItem("lists", JSON.stringify(lists));
+  // }
 }
